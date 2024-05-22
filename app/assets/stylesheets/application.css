@@ -1,15 +1,96 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+img {
+    object-fit: contain;
+    cursor: pointer;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 4fr 2fr;
+}
+
+.sidebar {
+    min-height: 100vh;
+    background-color: #36454F;
+    color: #fff;
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10000;
+    transition: all 0.5s ease;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar .logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+
+.sidebar .logo p{
+    padding: 15px;
+}
+
+
+.sidebar ul {
+    padding: 20px;
+}
+
+.sidebar ul li {
+    list-style-type: none;
+    padding: 15px;
+    transition: background-color 0.3s; 
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.sidebar ul li a i {
+    padding: 2px;
+}
+
+.sidebar ul li:hover {
+    background-color: #526272; 
+    border-radius: 0.5em;
+}
+
+.btn button {
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #ff5f5f; 
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s; 
+}
+
+.btn button:hover {
+    background-color: #e05252; 
+}
