@@ -1,1 +1,47 @@
-<h1>Welcome <%= @username %></h1>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Title Here</title>
+    <%= stylesheet_link_tag "application" %>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="/assets/logo.jpeg" alt="error 404">
+                <p>Devgenie</p>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+                    <li><a href="#"><i class='bx bx-columns'></i> Boards</a></li>
+                    <li><a href="#"><i class='bx bxs-folder-open'></i> Projects</a></li>
+                    <li><a href="#"><i class='bx bxs-calendar'></i> Calendar</a></li>
+                </ul>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#"><i class='bx bxl-microsoft-teams'></i> Teams</a></li>
+                    <li><a href="#"><i class='bx bx-task'></i> Tasks</a></li>
+                    <li><a href="#"><i class='bx bx-info-circle'></i> Issues</a></li>
+                    <li><a href="#"><i class='bx bxs-file-doc'></i> Documents</a></li>
+                    <li><a href="#"><i class='bx bx-chat'></i> Messages</a></li>
+                    <li><a href="#"><i class='bx bxs-report'></i> Reports</a></li>
+                </ul>
+            </div>
+            <div class="btn">
+                <button><i class='bx bx-log-out'></i> logout</button>
+            </div>
+        </aside>
+        <main>
+           
+        </main>
+    </div>
+</body>
+
+</html>
