@@ -1,0 +1,8 @@
+<%= form_with model: @user do |f| %>
+ <%=f.label "Username"%>
+ <%=f.text_field :username%><br>
+ <%=f.label "Password"%> 
+ <%=f.text_field :password%><br>
+ <%=f.submit%>
+<%end%>
+<%=flash[:error]%>
