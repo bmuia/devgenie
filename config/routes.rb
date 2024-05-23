@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :project_owners
+  resources :issues
+  resources :tasks
+  resources :projects
   get 'dashboard/index'
   resources :users
   get "/signup", to: "users#new", as: "signup"

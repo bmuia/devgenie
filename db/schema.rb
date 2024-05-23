@@ -10,7 +10,51 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_22_083557) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_23_111339) do
+  create_table "issues", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.string "status"
+    t.string "priority"
+    t.string "assigned_to"
+    t.string "created_by"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "project_id", null: false
+    t.index ["project_id"], name: "index_issues_on_project_id"
+  end
+
+  create_table "project_owners", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.integer "project_id", null: false
+    t.index ["project_id"], name: "index_project_owners_on_project_id"
+    t.index ["user_id"], name: "index_project_owners_on_user_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "start_date"
+    t.string "end_date"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "due_date"
+    t.string "priority"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "project_id", null: false
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -18,4 +62,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_22_083557) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "issues", "projects"
+  add_foreign_key "project_owners", "projects"
+  add_foreign_key "project_owners", "users"
+  add_foreign_key "tasks", "projects"
 end
