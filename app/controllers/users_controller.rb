@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authorized, only: [:new, :create] 
+    skip_before_action :verify_authenticity_token, only: [:create]
   
     def show
       @user = User.find(params[:id])
@@ -23,7 +24,7 @@ class UsersController < ApplicationController
     private
   
     def user_params
-      params.require(:user).permit(:username, :password)
+      params.require(:user).permit(:username,:email, :password)
     end
   end
   
