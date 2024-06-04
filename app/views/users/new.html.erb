@@ -1,4 +1,5 @@
 <%= form_with model: @user do |f| %>
+<<<<<<< HEAD
  <%=f.label "Username"%>
  <%=f.text_field :username%><br>
  <%=f.label "Password"%> 
@@ -6,3 +7,21 @@
  <%=f.submit%>
 <%end%>
 <%=flash[:error]%>
+=======
+  <%= f.label "Username" %>
+  <%= f.text_field :username %><br>
+   <%= f.label "Email" %>
+  <%= f.email_field :email %><br>
+  <%= f.label "Password" %>
+  <%= f.password_field :password %><br>
+  <%= f.label "Password confirmation" %>
+  <%= f.password_field :password_confirmation %><br>
+  <%= f.submit %>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="error-message">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+>>>>>>> 301d7f9a5d40e57dfa3b95bf7e4d37d81a7de9e3
