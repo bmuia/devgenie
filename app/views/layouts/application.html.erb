@@ -1,15 +1,65 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devgenie</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application" %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+    <%= javascript_pack_tag 'application' %>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" data-turbolinks-permanent>
+            <div class="logo">
+                <img src="/assets/logo.jpeg" alt="error 404">
+                <p>Devgenie</p>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><%= link_to '<i class="bx bxs-dashboard"></i>Dashboard'.html_safe, dashboard_path %></li>
+                    <li><%= link_to '<i class="bx bx-columns"></i> Boards'.html_safe, '#' %></li>
+                    <li><%= link_to '<i class="bx bxs-folder-open"></i> Projects'.html_safe, projects_path %></li>
+                    <li><%= link_to '<i class="bx bxs-calendar"></i> Calendar'.html_safe, '#' %></li>
+                </ul>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><%= link_to '<i class="bx bxl-microsoft-teams"></i> Teams'.html_safe, '#' %></li>
+                    <li><%= link_to '<i class="bx bx-task"></i> Tasks'.html_safe, '#' %></li>
+                    <li><%= link_to '<i class="bx bx-info-circle"></i> Issues'.html_safe, '#' %></li>
+                    <li><%= link_to '<i class="bx bxs-file-doc"></i> Documents'.html_safe, '#' %></li>
+                    <li><%= link_to '<i class="bx bx-chat"></i> Messages'.html_safe, '#' %></li>
+                    <li><%= link_to '<i class="bx bxs-report"></i> Report'.html_safe, '#' %></li>
+                </ul>
+            </div>
+            <div class="btn">
+                <button><i class='bx bx-log-out'></i> logout</button>
+            </div>
+        </aside>
+        <main>
+            <header>
+                <div class="search">
+                    <input type="text" placeholder="search here for people, projects etc" />
+                    <i class='bx bx-search'></i>
+                </div>
+                <div class="nav-links">
+                    <i class='bx bx-task'></i>
+                    <i class='bx bx-bell'></i>
+                    <i class='bx bx-cog'></i>
+                    <i class='bx bx-moon'></i>
+                </div>
+                <div class="profile">
+                    <img src="/assets/noImage.jpeg" alt="error 404">
+                </div>
+            </header>
+            <div class="content" id="dashboard-content">
+                <%= yield %>
+            </div>
+        </main>
+    </div>
+</body>
 </html>
