@@ -1,4 +1,4 @@
-<%= form_with(model: project, local: true) do |form| %>
+<%= form_with(model: project, local: true, class: "project-form") do |form| %>
   <% if project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -11,31 +11,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name,  "Project Name" %>
+    <%= form.text_field :name, placeholder: "project-name" %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, placeholder: "Write a brief description of your project..." %>
   </div>
 
   <div class="field">
     <%= form.label :start_date %>
-    <%= form.date_select :start_date %>
+    <%= form.date_field :start_date %>
   </div>
 
   <div class="field">
     <%= form.label :end_date %>
-    <%= form.date_select :end_date %>
+    <%= form.date_field :end_date %>
   </div>
 
   <div class="field">
     <%= form.label :status %>
-    <%= form.text_field :status %>
+    <%= form.select :status, options_for_select(['ongoing', 'completed', 'paused', 'cancelled', 'pending']) %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= link_to 'Back', projects_path, class: "btn btn-secondary" %>
+    <%= form.submit project.new_record? ? "Create Project" : "Update Project", class: "btn btn-primary" %>
   </div>
 <% end %>

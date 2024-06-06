@@ -1,30 +1,47 @@
-<h1>Projects</h1>
+<div class="project-bar">
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Start Date</th>
-      <th>End Date</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.description %></td>
-        <td><%= project.start_date %></td>
-        <td><%= project.end_date %></td>
-        <td><%= project.status %></td>
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="project-search">
+  <%= form_tag projects_path, method: :get do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Find a project..." %>
+  <% end %>
+</div>
 
-<%= link_to 'New Project', new_project_path %>
+<div class="new-project-button">
+  <%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
+</div>
+
+</div>
+
+<div class="project-list">
+  <% @projects.reverse_each do |project| %>
+    <div class="project">
+
+      <div class="project-details">
+       <div class="box">
+        <h2><%= link_to project.name, project %></h2>
+         <p class="description"><%= truncate_words(project.description, length: 5) %></p>
+       </div>
+
+      
+
+        <div class="status">
+         <div class="box">
+          <span class="status-label <%= status_class(project.status) %>"><%= project.status %></span>
+          </div>
+        </div>
+
+         <div class="actions">
+          <%= link_to edit_project_path(project) do %>
+            <i class="bx bx-edit text-green"></i>
+          <% end %>
+          <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="bx bxs-trash text-red"></i>
+          <% end %>
+        </div>
+
+      </div>
+
+    
+    </div>
+  <% end %>
+</div>
