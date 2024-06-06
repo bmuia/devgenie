@@ -34,9 +34,10 @@
           <%= link_to edit_project_path(project) do %>
             <i class="bx bx-edit text-green"></i>
           <% end %>
-          <%= link_to project, method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="bx bxs-trash text-red"></i>
+          <%= link_to project_path(project), method: :delete do %>
+          <i class="bx bxs-trash text-red"></i>
           <% end %>
+
         </div>
 
       </div>
