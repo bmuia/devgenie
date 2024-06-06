@@ -1,33 +1,49 @@
 <div class="project-details-container">
-  <div class="project-details--a">
-    <p>
-      <strong>Name:</strong>
-      <%= @project.name %>
-    </p>
+  <div class="files-section">
+    <!-- Display files here -->
+    <h2>Project Files</h2>
+    <!-- Add code to display files -->
+  </div>
 
-    <p>
-      <strong>Description:</strong>
-      <%= @project.description %>
-    </p>
+  <div class="details-section">
+    <div class="project-details--a">
+      <h2>Details</h2>
+      <hr>
 
-    <p>
-      <strong>Start Date:</strong>
-      <%= @project.start_date %>
-    </p>
+      <div class="detail-row">
+        <div class="detail-label"><strong>DESCRIPTION</strong></div>
+        <div class="detail-value">
+        <% if  @project.description.present? %>
+        <%= @project.description %>
+        <% else %>
+        <p class="default-message">No description available</p>
+        <% end %>
+        </div>
+      </div>
 
-    <p>
-      <strong>End Date:</strong>
-      <%= @project.end_date %>
-    </p>
+      <div class="detail-row">
+        <div class="detail-label"><strong>Start Date</strong></div>
+        <div class="detail-value"><%= @project.start_date %></div>
+      </div>
 
-    <p>
-      <strong>Status:</strong>
-      <%= @project.status %>
-    </p>
+      <div class="detail-row">
+        <div class="detail-label"><strong>End Date</strong></div>
+        <div class="detail-value"><%= @project.end_date %></div>
+      </div>
 
-    <div class="actions--a">
-      <%= link_to 'Back', projects_path, class: "btn btn-secondary--a" %>
-      <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger--a" %>
+      <div class="detail-row">
+        <div class="status">
+         <div class="box">
+         <div class="detail-label"><strong>Status</strong></div>
+          <span class="status-label <%= status_class(@project.status) %>"><%= @project.status %></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions--a">
+        <%= link_to 'Back', projects_path, class: "btn btn-secondary--a" %>
+        <%= link_to 'Destroy', @project, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger--a" %>
+      </div>
     </div>
   </div>
 </div>
