@@ -1,48 +1,43 @@
 <div class="project-bar">
+  <div class="project-search">
+    <%= form_tag projects_path, method: :get do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Find a project..." %>
+    <% end %>
+  </div>
 
-<div class="project-search">
-  <%= form_tag projects_path, method: :get do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Find a project..." %>
-  <% end %>
-</div>
-
-<div class="new-project-button">
-  <%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
-</div>
-
+  <div class="new-project-button">
+    <%= link_to 'New Project', new_project_path, class: "btn btn-success" %>
+  </div>
 </div>
 
 <div class="project-list">
-  <% @projects.reverse_each do |project| %>
-    <div class="project">
-
-      <div class="project-details">
-       <div class="box">
-        <h2><%= link_to project.name, project %></h2>
-         <p class="description"><%= truncate_words(project.description, length: 5) %></p>
-       </div>
-
-      
-
-        <div class="status">
-         <div class="box">
-          <span class="status-label <%= status_class(project.status) %>"><%= project.status %></span>
+  <% if @projects.any? %>
+    <% @projects.reverse_each do |project| %>
+      <div class="project">
+        <div class="project-details">
+          <div class="box">
+            <h2><%= link_to project.name, project %></h2>
+            <p class="description"><%= truncate_words(project.description, length: 5) %></p>
+          </div>
+          <div class="status">
+            <div class="box">
+              <span class="status-label <%= status_class(project.status) %>"><%= project.status %></span>
+            </div>
+          </div>
+          <div class="actions">
+            <%= link_to edit_project_path(project) do %>
+              <i class="bx bx-edit text-green"></i>
+            <% end %>
+            <%= link_to project_path(project), method: :delete do %>
+              <i class="bx bxs-trash text-red"></i>
+            <% end %>
           </div>
         </div>
-
-         <div class="actions">
-          <%= link_to edit_project_path(project) do %>
-            <i class="bx bx-edit text-green"></i>
-          <% end %>
-          <%= link_to project_path(project), method: :delete do %>
-          <i class="bx bxs-trash text-red"></i>
-          <% end %>
-
-        </div>
-
       </div>
-
-    
+    <% end %>
+  <% else %>
+    <div class="default-message--a">
+      <p>No projects are available.</p>
     </div>
   <% end %>
 </div>

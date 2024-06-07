@@ -1,23 +1,23 @@
 <div class="project-details-container">
-  <div class="files-section">
-    <!-- Display files here -->
-    <h2>Project Files</h2>
-    <!-- Add code to display files -->
-  </div>
 
+
+<div class="task"> 
+
+</div>
   <div class="details-section">
     <div class="project-details--a">
       <h2>Details</h2>
       <hr>
 
       <div class="detail-row">
+      
         <div class="detail-label"><strong>DESCRIPTION</strong></div>
         <div class="detail-value">
-        <% if  @project.description.present? %>
-        <%= @project.description %>
-        <% else %>
-        <p class="default-message">No description available</p>
-        <% end %>
+          <% if @project.description.present? %>
+            <%= @project.description %>
+          <% else %>
+            <p class="default-message">No description available</p>
+          <% end %>
         </div>
       </div>
 
@@ -33,9 +33,9 @@
 
       <div class="detail-row">
         <div class="status">
-         <div class="box">
-         <div class="detail-label"><strong>Status</strong></div>
-          <span class="status-label <%= status_class(@project.status) %>"><%= @project.status %></span>
+          <div class="box">
+            <div class="detail-label"><strong>Status</strong></div>
+            <span class="status-label <%= status_class(@project.status) %>"><%= @project.status %></span>
           </div>
         </div>
       </div>

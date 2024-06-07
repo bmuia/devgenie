@@ -412,13 +412,7 @@ main header .profile img{
     text-align: center;
   }
   
-  .files-section {
-
-  }
   
-  .details-section {
-
-  }
   
   .detail-row {
     padding: 5px;
@@ -461,4 +455,16 @@ main header .profile img{
     background-color: #dc3545;
     margin-left: 10px;
   }
+
+  .default-message--a {
+    color: #586069;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+  }
+  .default-message--a p{
+  font-size: 30px;
+  }
+  
   
