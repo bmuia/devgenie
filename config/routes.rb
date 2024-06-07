@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new", as: "login"
   post "/login", to: "sessions#create"
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
+
+  resources :projects do
+    resources :folders, only: [:create, :destroy] # Only allow create and destroy actions for nested folders
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

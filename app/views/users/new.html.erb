@@ -1,6 +1,7 @@
+<%= form_with(model: @user, local: true) do |f| %>
   <%= f.label "Username" %>
   <%= f.text_field :username %><br>
-   <%= f.label "Email" %>
+  <%= f.label "Email" %>
   <%= f.email_field :email %><br>
   <%= f.label "Password" %>
   <%= f.password_field :password %><br>
@@ -14,4 +15,3 @@
     <%= flash[:error] %>
   </div>
 <% end %>
-
