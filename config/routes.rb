@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
 
   resources :projects do
-    resources :folders, only: [:create, :destroy] # Only allow create and destroy actions for nested folders
+    resources :tasks
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
