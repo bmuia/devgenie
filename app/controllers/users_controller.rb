@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  layout 'auth', only: [:new, :create]
     skip_before_action :authorized, only: [:new, :create] 
     skip_before_action :verify_authenticity_token, only: [:create]
   
@@ -16,8 +17,8 @@ class UsersController < ApplicationController
         session[:user_id] = @user.id
         redirect_to dashboard_path
       else
-        flash[:error] = "Not a valid username or password"
-        render :new
+        render json: { error: @user.errors.full_messages }, status: :unprocessable_entity
+       
       end
     end
   
