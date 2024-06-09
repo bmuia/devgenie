@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'
   resources :project_owners
   resources :issues
   resources :tasks
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'dashboard#index', as: 'dashboard'
 
   resources :projects do
-    resources :tasks
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

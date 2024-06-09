@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  layout 'auth', only: [:new, :create]
+  
   skip_before_action :authorized, only: [:new, :create]
   skip_before_action :verify_authenticity_token, only: [:create]
 
